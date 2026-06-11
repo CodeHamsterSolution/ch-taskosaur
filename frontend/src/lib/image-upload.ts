@@ -91,8 +91,8 @@ export async function uploadImage(
  * For local storage, returns the full URL via uploads endpoint
  */
 export function getImageUrl(response: ImageUploadResponse): string {
-  // Get the backend API base URL (e.g., http://localhost:3000/api)
-  const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000/api';
+  // Get the backend API base URL (e.g., http://localhost:7777/api)
+  const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:7777/api';
 
   // For S3 storage with presigned URL (hostname ends with amazonaws.com or has presigned query params)
   if (response.url) {

@@ -69,7 +69,7 @@ describe('TaskSharesController', () => {
       const expectedResult = {
         id: 'share-id',
         token: 'token',
-        shareUrl: 'http://localhost:3000/public/task/token',
+        shareUrl: 'http://localhost:7777/public/task/token',
         expiresAt: new Date(),
         createdAt: new Date(),
       };
@@ -90,7 +90,7 @@ describe('TaskSharesController', () => {
         {
           id: 'share-id',
           token: 'token',
-          shareUrl: 'http://localhost:3000/public/task/token',
+          shareUrl: 'http://localhost:7777/public/task/token',
           expiresAt: new Date(),
           createdAt: new Date(),
         },

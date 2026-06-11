@@ -48,11 +48,11 @@ async function bootstrap() {
     origin: process.env.CORS_ORIGINS
       ? process.env.CORS_ORIGINS.split(',')
       : [
-          'http://localhost:3000',
-          'http://localhost:3001',
-          'http://0.0.0.0:3000',
-          'http://0.0.0.0:3001',
-          'http://127.0.0.1:3000',
+          'http://localhost:7777',
+          'http://localhost:7778',
+          'http://0.0.0.0:7777',
+          'http://0.0.0.0:7778',
+          'http://127.0.0.1:7777',
         ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
     credentials: true,

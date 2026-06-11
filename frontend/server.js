@@ -2,7 +2,7 @@ import { createServer } from 'http'
 import { parse } from 'url'
 import next from 'next'
 
-const port = 3001
+const port = 7778
 const hostname = process.env.HOST || '0.0.0.0'
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })

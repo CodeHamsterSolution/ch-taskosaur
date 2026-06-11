@@ -154,7 +154,7 @@ export class EmailService {
               organization: {
                 name: task.project.workspace.organization.name,
               },
-              taskUrl: `${this.configService.getOrThrow('FRONTEND_URL', 'http://localhost:3001')}/tasks/${task.id}`,
+              taskUrl: `${this.configService.getOrThrow('FRONTEND_URL', 'http://localhost:7778')}/tasks/${task.id}`,
             },
             priority: EmailPriority.HIGH,
           }),
@@ -215,7 +215,7 @@ export class EmailService {
                 name: task.project.name,
                 key: task.project.slug,
               },
-              taskUrl: `${this.configService.getOrThrow('FRONTEND_URL', 'http://localhost:3001')}/tasks/${task.id}`,
+              taskUrl: `${this.configService.getOrThrow('FRONTEND_URL', 'http://localhost:7778')}/tasks/${task.id}`,
             },
             priority: hoursUntilDue <= 2 ? EmailPriority.HIGH : EmailPriority.NORMAL,
           }),
@@ -375,7 +375,7 @@ export class EmailService {
             name: task.project.name,
             key: task.project.slug,
           },
-          taskUrl: `${this.configService.getOrThrow('FRONTEND_URL', 'http://localhost:3001')}/tasks/${task.id}`,
+          taskUrl: `${this.configService.getOrThrow('FRONTEND_URL', 'http://localhost:7778')}/tasks/${task.id}`,
         },
         priority: EmailPriority.NORMAL,
       });
@@ -465,7 +465,7 @@ export class EmailService {
               title: sanitizeHtml(task.title),
               dueDate: task.dueDate,
               project: sanitizeHtml(task.project.name),
-              url: `${this.configService.getOrThrow('FRONTEND_URL', 'http://localhost:3001')}/tasks/${task.id}`,
+              url: `${this.configService.getOrThrow('FRONTEND_URL', 'http://localhost:7778')}/tasks/${task.id}`,
             })),
           },
         },
@@ -724,7 +724,7 @@ export class EmailService {
               organization: {
                 name: comment.task.project.workspace.organization.name,
               },
-              taskUrl: `${this.configService.get('FRONTEND_URL', 'http://localhost:3001')}/tasks/${comment.task.id}`,
+              taskUrl: `${this.configService.get('FRONTEND_URL', 'http://localhost:7778')}/tasks/${comment.task.id}`,
             },
             priority: EmailPriority.NORMAL,
           }),
@@ -804,7 +804,7 @@ export class EmailService {
               organization: {
                 name: project.workspace.organization.name,
               },
-              projectUrl: `${this.configService.get('FRONTEND_URL', 'http://localhost:3001')}/projects/${project.slug}`,
+              projectUrl: `${this.configService.get('FRONTEND_URL', 'http://localhost:7778')}/projects/${project.slug}`,
             },
             priority: EmailPriority.NORMAL,
           }),
@@ -884,7 +884,7 @@ export class EmailService {
               organization: {
                 name: project.workspace.organization.name,
               },
-              projectUrl: `${this.configService.get('FRONTEND_URL', 'http://localhost:3001')}/projects/${project.slug}`,
+              projectUrl: `${this.configService.get('FRONTEND_URL', 'http://localhost:7778')}/projects/${project.slug}`,
             },
             priority: EmailPriority.NORMAL,
           }),
@@ -949,7 +949,7 @@ export class EmailService {
             title: task.title,
           };
           entityName = task.title;
-          entityUrl = `${this.configService.get('FRONTEND_URL', 'http://localhost:3001')}/tasks/${task.id}`;
+          entityUrl = `${this.configService.get('FRONTEND_URL', 'http://localhost:7778')}/tasks/${task.id}`;
         }
       } else if (entityType.toLowerCase() === 'taskcomment') {
         const comment = await this.prisma.taskComment.findUnique({
@@ -978,7 +978,7 @@ export class EmailService {
             title: comment.task.title,
           };
           entityName = comment.task.title;
-          entityUrl = `${this.configService.get('FRONTEND_URL', 'http://localhost:3001')}/tasks/${comment.task.id}#comments`;
+          entityUrl = `${this.configService.get('FRONTEND_URL', 'http://localhost:7778')}/tasks/${comment.task.id}#comments`;
         }
       }
 
@@ -1047,7 +1047,7 @@ export class EmailService {
             message: sanitizeHtml(notificationData.message),
             actionUrl:
               notificationData.actionUrl ||
-              `${this.configService.get('FRONTEND_URL', 'http://localhost:3001')}/`,
+              `${this.configService.get('FRONTEND_URL', 'http://localhost:7778')}/`,
           },
         },
         priority: EmailPriority.LOW,

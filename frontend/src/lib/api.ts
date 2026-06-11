@@ -276,7 +276,7 @@ const refreshTokens = async (): Promise<string> => {
   try {
     // Refresh token is sent automatically as an httpOnly cookie via withCredentials
     const response = await axios.post<AuthTokenResponse>(
-      `${process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:3000/api"}/auth/refresh`,
+      `${process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:7777/api"}/auth/refresh`,
       {},
       {
         headers: { "Content-Type": "application/json" },
@@ -345,7 +345,7 @@ const ensureValidToken = async (): Promise<string | null> => {
 
 // Create axios instance
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:3000/api",
+  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:7777/api",
   timeout: 30000,
   headers: {
     "Content-Type": "application/json",

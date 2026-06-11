@@ -264,7 +264,7 @@ export class TaskCommentsService {
                       (match: string, username: string, path: string) => {
                         const absoluteUrl = path.startsWith('http')
                           ? path
-                          : `${this.configService.get<string>('FRONTEND_URL', 'http://localhost:3001')}${path.startsWith('/') ? '' : '/'}${path}`;
+                          : `${this.configService.get<string>('FRONTEND_URL', 'http://localhost:7778')}${path.startsWith('/') ? '' : '/'}${path}`;
                         return `[${username}](${absoluteUrl})`;
                       },
                     )
@@ -279,14 +279,14 @@ export class TaskCommentsService {
                       ) => {
                         const absoluteUrl = path.startsWith('http')
                           ? path
-                          : `${this.configService.get<string>('FRONTEND_URL', 'http://localhost:3001')}${path.startsWith('/') ? '' : '/'}${path}`;
+                          : `${this.configService.get<string>('FRONTEND_URL', 'http://localhost:7778')}${path.startsWith('/') ? '' : '/'}${path}`;
                         return `<a href="${absoluteUrl}"${suffix}>${username}</a>`;
                       },
                     ),
                   textContent: sanitizeText(comment.content)
                     .replace(/\[@?([\w.-]+)\]\([^)]+\)/g, '$1')
                     .replace(/&nbsp;/g, ' '),
-                  entityUrl: `${this.configService.get('FRONTEND_URL', 'http://localhost:3001')}/tasks/${task.slug}`,
+                  entityUrl: `${this.configService.get('FRONTEND_URL', 'http://localhost:7778')}/tasks/${task.slug}`,
                 },
                 priority: EmailPriority.HIGH,
               })

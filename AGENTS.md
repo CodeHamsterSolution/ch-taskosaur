@@ -5,8 +5,8 @@ This document provides guidance for AI agents working with the Taskosaur project
 ## Project Overview
 
 Taskosaur is an open-source project management platform with conversational AI task execution. It's built as a monorepo with:
-- **Backend**: NestJS API server (port 3000)
-- **Frontend**: Next.js application (port 3001)
+- **Backend**: NestJS API server (port 7777)
+- **Frontend**: Next.js application (port 7778)
 - **Database**: PostgreSQL with Prisma ORM
 - **Queue**: Redis with BullMQ
 
@@ -44,8 +44,8 @@ npm run dev
 ### Development
 ```bash
 npm run dev              # Start both frontend and backend
-npm run dev:frontend     # Start frontend only (port 3001)
-npm run dev:backend      # Start backend only (port 3000)
+npm run dev:frontend     # Start frontend only (port 7778)
+npm run dev:backend      # Start backend only (port 7777)
 ```
 
 ### Database Operations
@@ -93,7 +93,7 @@ npm run clean:backend    # Clean backend build artifacts
 
 ```
 taskosaur/
-├── backend/                # NestJS Backend (Port 3000)
+├── backend/                # NestJS Backend (Port 7777)
 │   ├── src/
 │   │   ├── modules/       # Feature modules (auth, tasks, projects, etc.)
 │   │   ├── common/        # Shared utilities and middleware
@@ -104,7 +104,7 @@ taskosaur/
 │   ├── prisma/            # Database schema and migrations
 │   ├── public/            # Static files
 │   └── uploads/           # File uploads
-├── frontend/              # Next.js Frontend (Port 3001)
+├── frontend/              # Next.js Frontend (Port 7778)
 │   ├── src/
 │   │   ├── app/          # App Router pages
 │   │   ├── components/   # React components
@@ -188,9 +188,9 @@ REDIS_HOST=localhost
 REDIS_PORT=6379
 
 # Frontend Configuration
-NEXT_PUBLIC_API_BASE_URL=http://localhost:3000/api
-FRONTEND_URL=http://localhost:3001
-CORS_ORIGIN="http://localhost:3001"
+NEXT_PUBLIC_API_BASE_URL=http://localhost:7777/api
+FRONTEND_URL=http://localhost:7778
+CORS_ORIGIN="http://localhost:7778"
 ```
 
 ## Docker Development
@@ -290,8 +290,8 @@ When working on Taskosaur as an AI agent:
    - Check REDIS_HOST and REDIS_PORT in .env
 
 3. **Port conflicts**:
-   - Backend runs on port 3000
-   - Frontend runs on port 3001
+   - Backend runs on port 7777
+   - Frontend runs on port 7778
    - Modify in docker-compose.dev.yml if needed
 
 4. **Dependency issues**:
@@ -304,7 +304,7 @@ When working on Taskosaur as an AI agent:
 - [CONTRIBUTING.md](CONTRIBUTING.md) - Contribution guidelines
 - [SECURITY.md](SECURITY.md) - Security policies
 - [DOCKER_DEV_SETUP.md](DOCKER_DEV_SETUP.md) - Docker development guide
-- API Documentation: http://localhost:3000/api/docs (when running)
+- API Documentation: http://localhost:7777/api/docs (when running)
 
 ## Support
 

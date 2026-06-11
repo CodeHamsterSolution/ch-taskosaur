@@ -97,7 +97,7 @@ export class AiChatService {
     switch (provider) {
       case 'openrouter':
         requestUrl = `${apiUrl}/chat/completions`;
-        requestHeaders['HTTP-Referer'] = process.env.APP_URL || 'http://localhost:3000';
+        requestHeaders['HTTP-Referer'] = process.env.APP_URL || 'http://localhost:7777';
         requestHeaders['X-Title'] = 'Taskosaur AI Assistant';
         requestBody.top_p = 0.9;
         requestBody.frequency_penalty = 0;
@@ -662,7 +662,7 @@ Respond ONLY with the description text, nothing else.`;
       switch (provider) {
         case 'openrouter':
           requestUrl = `${apiUrl}/chat/completions`;
-          requestHeaders['HTTP-Referer'] = process.env.APP_URL || 'http://localhost:3000';
+          requestHeaders['HTTP-Referer'] = process.env.APP_URL || 'http://localhost:7777';
           requestHeaders['X-Title'] = 'Taskosaur AI Assistant';
           break;
         case 'openai':
@@ -895,7 +895,7 @@ Respond ONLY with the description text, nothing else.`;
       switch (provider) {
         case 'openrouter':
           requestUrl = `${validatedUrl}/chat/completions`;
-          requestHeaders['HTTP-Referer'] = process.env.APP_URL || 'http://localhost:3000';
+          requestHeaders['HTTP-Referer'] = process.env.APP_URL || 'http://localhost:7777';
           requestHeaders['X-Title'] = 'Taskosaur AI Assistant';
           break;
 

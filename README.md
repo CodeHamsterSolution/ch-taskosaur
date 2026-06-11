@@ -58,7 +58,7 @@ Taskosaur combines traditional project management features with Conversational A
 - Redis 7+ (or Docker)
 
 > [!NOTE]
-> **Default Ports:** Both `docker compose -f docker-compose.dev.yml up` and `npm run dev` will automatically start the Backend on port **3000** and the Frontend on port **3001** by default. Please ensure these ports are available on your system before proceeding.
+> **Default Ports:** Both `docker compose -f docker-compose.dev.yml up` and `npm run dev` will automatically start the Backend on port **7777** and the Frontend on port **7778** by default. Please ensure these ports are available on your system before proceeding.
 
 ### Docker Setup (Recommended)
 
@@ -89,12 +89,12 @@ The fastest way to get started with Taskosaur is using Docker Compose:
    - ✅ Generates Prisma client
    - ✅ Runs database migrations
    - ✅ Seeds the database with sample data
-   - ✅ Starts both backend and frontend (on default ports 3000 and 3001 respectively)
+   - ✅ Starts both backend and frontend (on default ports 7777 and 7778 respectively)
 
 4. **Access the application**
-   - Frontend: http://localhost:3001
-   - Backend API: http://localhost:3000
-   - API Documentation: http://localhost:3000/api/docs
+   - Frontend: http://localhost:7778
+   - Backend API: http://localhost:7777
+   - API Documentation: http://localhost:7777/api/docs
 
 See [DOCKER_DEV_SETUP.md](DOCKER_DEV_SETUP.md) for detailed Docker documentation.
 
@@ -149,11 +149,11 @@ If you prefer to run services locally:
    EMAIL_DOMAIN="taskosaur.com"
 
    # Frontend URL (for email links and CORS)
-   FRONTEND_URL=http://localhost:3001
-   CORS_ORIGIN="http://localhost:3001"
+   FRONTEND_URL=http://localhost:7778
+   CORS_ORIGIN="http://localhost:7778"
 
    # Backend API URL (for frontend to connect to backend)
-   NEXT_PUBLIC_API_BASE_URL=http://localhost:3000/api
+   NEXT_PUBLIC_API_BASE_URL=http://localhost:7777/api
 
    # File Upload
    UPLOAD_DEST="./uploads"
@@ -184,14 +184,14 @@ If you prefer to run services locally:
    npm run dev
 
    # Or start individually
-   npm run dev:frontend    # Start frontend only (port 3001)
-   npm run dev:backend     # Start backend only (port 3000)
+   npm run dev:frontend    # Start frontend only (port 7778)
+   npm run dev:backend     # Start backend only (port 7777)
    ```
 
 6. **Access the Application**
-   - Frontend: http://localhost:3001
-   - Backend API: http://localhost:3000
-   - API Documentation: http://localhost:3000/api/docs
+   - Frontend: http://localhost:7778
+   - Backend API: http://localhost:7777
+   - API Documentation: http://localhost:7777/api/docs
 
 ## Development
 
@@ -203,8 +203,8 @@ All commands are run from the root directory:
 
 ```bash
 npm run dev              # Start both frontend and backend concurrently
-npm run dev:frontend     # Start frontend only (Next.js on port 3001)
-npm run dev:backend      # Start backend only (NestJS on port 3000)
+npm run dev:frontend     # Start frontend only (Next.js on port 7778)
+npm run dev:backend      # Start backend only (NestJS on port 7777)
 ```
 
 #### Build
@@ -275,7 +275,7 @@ git commit -m "feat: add feature"  # Runs checks automatically
 
 ```
 taskosaur/
-├── backend/                # NestJS Backend (Port 3000)
+├── backend/                # NestJS Backend (Port 7777)
 │   ├── src/
 │   │   ├── modules/       # Feature modules
 │   │   ├── common/        # Shared utilities
@@ -284,7 +284,7 @@ taskosaur/
 │   ├── prisma/            # Database schema and migrations
 │   ├── public/            # Static files
 │   └── uploads/           # File uploads
-├── frontend/              # Next.js Frontend (Port 3001)
+├── frontend/              # Next.js Frontend (Port 7778)
 │   ├── src/
 │   │   ├── app/          # App Router pages
 │   │   ├── components/   # React components
@@ -487,7 +487,7 @@ _Taskosaur is actively under development. The following features represent our p
    SMTP_FROM=noreply@taskosaur.com
 
    # Frontend URL (for email links)
-   FRONTEND_URL=http://localhost:3000
+   FRONTEND_URL=http://localhost:7777
 
    # File Upload
    UPLOAD_DEST="./uploads"
@@ -498,7 +498,7 @@ _Taskosaur is actively under development. The following features represent our p
    JOB_RETRY_ATTEMPTS=3
 
    # Frontend Configuration
-   NEXT_PUBLIC_API_BASE_URL=http://localhost:3001/api
+   NEXT_PUBLIC_API_BASE_URL=http://localhost:7778/api
    ```
 
 4. **Setup Database**
@@ -523,9 +523,9 @@ _Taskosaur is actively under development. The following features represent our p
    ```
 
 6. **Access the Application**
-   - Frontend: [http://localhost:3000](http://localhost:3000)
-   - Backend API: [http://localhost:3001/api](http://localhost:3001/api)
-   - API Documentation: [http://localhost:3001/api/docs](http://localhost:3001/api/docs)
+   - Frontend: [http://localhost:7778](http://localhost:7778)
+   - Backend API: [http://localhost:7777](http://localhost:7777)
+   - API Documentation: [http://localhost:7777/api/docs](http://localhost:7777/api/docs)
 
 ## Development
 
@@ -745,7 +745,7 @@ FRONTEND_URL=https://your-domain.com
 
 The API documentation is automatically generated using Swagger:
 
-- Development: http://localhost:3000/api/docs
+- Development: http://localhost:7777/api/docs
 - Production: `https://api.your-domain.com/api/docs`
 
 ## Contributing

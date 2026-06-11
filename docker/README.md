@@ -14,7 +14,7 @@
 # Create docker-compose.yml (see below)
 docker compose up -d
 
-# Access at http://localhost:3000
+# Access at http://localhost:7777
 ```
 
 ## What is Taskosaur?
@@ -92,9 +92,9 @@ services:
       REDIS_PASSWORD: redis_password_change_this
 
       # Application URLs
-      FRONTEND_URL: http://localhost:3000
-      CORS_ORIGIN: http://localhost:3000
-      NEXT_PUBLIC_API_BASE_URL: http://localhost:3000/api
+      FRONTEND_URL: http://localhost:7777
+      CORS_ORIGIN: http://localhost:7777
+      NEXT_PUBLIC_API_BASE_URL: http://localhost:7777/api
 
       # Security - CHANGE THESE VALUES!
       JWT_SECRET: your-secure-jwt-secret-minimum-32-characters
@@ -118,7 +118,7 @@ services:
       MAX_CONCURRENT_JOBS: 5
       JOB_RETRY_ATTEMPTS: 3
     ports:
-      - "3000:3000"
+      - "7777:7777"
     volumes:
       - app_uploads:/app/taskosaur/uploads
       - app_logs:/app/taskosaur/logs
@@ -131,7 +131,7 @@ services:
       - taskosaur-network
     restart: unless-stopped
     healthcheck:
-      test: ["CMD-SHELL", "node -e \"require('http').get('http://localhost:3000/api/health', (r) => process.exit(r.statusCode === 200 ? 0 : 1))\""]
+      test: ["CMD-SHELL", "node -e \"require('http').get('http://localhost:7777/api/health', (r) => process.exit(r.statusCode === 200 ? 0 : 1))\""]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -182,9 +182,9 @@ docker compose down -v
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `NODE_ENV` | `production` | Node environment |
-| `FRONTEND_URL` | `http://localhost:3000` | Frontend URL for links |
-| `CORS_ORIGIN` | `http://localhost:3000` | CORS allowed origin |
-| `NEXT_PUBLIC_API_BASE_URL` | `http://localhost:3000/api` | API endpoint URL |
+| `FRONTEND_URL` | `http://localhost:7777` | Frontend URL for links |
+| `CORS_ORIGIN` | `http://localhost:7777` | CORS allowed origin |
+| `NEXT_PUBLIC_API_BASE_URL` | `http://localhost:7777/api` | API endpoint URL |
 | `REDIS_PASSWORD` | _(empty)_ | Redis password |
 | `SMTP_HOST` | _(empty)_ | SMTP server for emails |
 | `SMTP_PORT` | `587` | SMTP port |
@@ -217,14 +217,14 @@ The image uses the following volumes:
 
 ## Ports
 
-- `3000` - Combined frontend and backend (Next.js serves both)
+- `7777` - Combined frontend and backend (Next.js serves both)
 
 ## Health Check
 
 The image includes a health check endpoint:
 
 ```bash
-curl http://localhost:3000/api/health
+curl http://localhost:7777/api/health
 ```
 
 ## Conversational AI Task Execution Setup
@@ -272,7 +272,7 @@ server {
     client_max_body_size 10M;
 
     location / {
-        proxy_pass http://localhost:3000;
+        proxy_pass http://localhost:7777;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
@@ -341,11 +341,11 @@ npm run db:reset
 
 ### Port conflicts
 
-If port 3000 is already in use, change the port mapping in docker-compose.yml:
+If port 7777 is already in use, change the port mapping in docker-compose.yml:
 
 ```yaml
 ports:
-  - "8080:3000"  # Use port 8080 instead
+  - "8080:7777"  # Use port 8080 instead
 ```
 
 ## Links

@@ -294,7 +294,7 @@ export function LoginForm() {
               disabled={!ssoConfig.configured}
               onClick={() => {
                 if (ssoConfig.configured) {
-                  window.location.href = `${process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:3000/api"}/auth/oidc/login`;
+                  window.location.href = `${process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:7777/api"}/auth/oidc/login`;
                 }
               }}
             >

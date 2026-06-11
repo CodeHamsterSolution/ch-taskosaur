@@ -22,7 +22,7 @@ class SocketService {
       return;
     }
 
-    const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:3000/api";
+    const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:7777/api";
     const socketUrl = apiBaseUrl.replace("/api", "");
 
     console.log("[SocketService] Connecting to:", `${socketUrl}${eventsNamespace}`);

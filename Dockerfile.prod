@@ -84,7 +84,7 @@ RUN if [ ! -f "package.json" ]; then \
     fi
 
 # Expose the application port
-EXPOSE 3000
+EXPOSE 7777
 
 # Set the entrypoint
 ENTRYPOINT ["/entrypoint.sh"]
